@@ -181,7 +181,9 @@
 --reference:C:\Users\Dell\.nuget\packages\xunit.runner.reporters\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.reporters.dotnet.dll
 --reference:C:\Users\Dell\.nuget\packages\xunit.runner.utility\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.utility.dotnet.dll
 --reference:C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\src\RedoCommunityApp\bin\Debug\netcoreapp1.0\RedoCommunityApp.dll
+C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\tests\RedoCommunityApp.Test\FakeMemberRepository.cs
 C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\tests\RedoCommunityApp.Test\FakeMessageRepository.cs
-C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\tests\RedoCommunityApp.Test\Member.Test.cs
+C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\tests\RedoCommunityApp.Test\MemberTests.cs
+C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\tests\RedoCommunityApp.Test\MessageTest.cs
 C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\tests\RedoCommunityApp.Test\NewsTest.cs
 C:\Users\Dell\Desktop\CommunityApp2\CommunityApp2\tests\RedoCommunityApp.Test\Properties\AssemblyInfo.cs
