@@ -9,6 +9,6 @@ namespace RedoCommunityApp.Repositories
    public interface IMessageRepository
     {
         List<Message> GetMessagesByMember(Member member);
-        List<Message> GetAllMessages();
+        IEnumerable<Message> GetAllMessages();
     }
 }

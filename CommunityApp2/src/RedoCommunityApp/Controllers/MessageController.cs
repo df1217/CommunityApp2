@@ -33,7 +33,7 @@ namespace RedoCommunityApp.Controllers
             
             
             var messages = messageRepo.GetAllMessages();
-            return View(messages);
+            return View(messages.ToList());
         }
     }
 }

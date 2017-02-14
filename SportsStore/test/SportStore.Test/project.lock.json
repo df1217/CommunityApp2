@@ -2,7 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
-    ".NETCoreApp,Version=v1.0": {
+    ".NETCoreApp,Version=v1.0.1": {
       "dotnet-test-xunit/2.2.0-preview2-build1029": {
         "type": "package",
         "dependencies": {
@@ -9895,10 +9895,10 @@
       "SportsStore >= 1.0.0",
       "System.Diagnostics.TraceSource >= 4.0.0",
       "dotnet-test-xunit >= 2.2.0-preview2-build1029",
-      "moq.netcore >= 4.4.0-beta8",
+      "moq.netcore >= 4.5.30",
       "xunit >= 2.1.0"
     ],
-    ".NETCoreApp,Version=v1.0": []
+    ".NETCoreApp,Version=v1.0.1": []
   },
   "tools": {},
   "projectFileToolGroups": {}
