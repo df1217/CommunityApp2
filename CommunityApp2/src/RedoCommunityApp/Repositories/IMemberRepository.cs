@@ -9,7 +9,7 @@ namespace RedoCommunityApp.Repositories
     public interface IMemberRepository
     {
         Member GetMemberByEmail(string email);
-        List<Member> GetAllMembers();
+        IEnumerable<Member> GetAllMembers();
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RedoCommunityApp.Repositories;
+using System.Linq;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,7 +18,7 @@ namespace RedoCommunityApp.Controllers
         public ViewResult Index()
         {
             var members = memberRepo.GetAllMembers();
-            return View(members);
+            return View(members.ToList());
         }
 
         public ViewResult MemberByEmail(string email)

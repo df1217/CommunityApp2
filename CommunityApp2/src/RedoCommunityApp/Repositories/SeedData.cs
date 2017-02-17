@@ -16,8 +16,8 @@ namespace RedoCommunityApp.Repositories
             ApplicationDBContext context = app.ApplicationServices.
                 GetRequiredService<ApplicationDBContext>();
 
-           if (!context.Messages.Any())
-           {
+          if (!context.Messages.Any())
+          {
                 
                 Member member = new Member
                 {
@@ -73,12 +73,21 @@ namespace RedoCommunityApp.Repositories
                  }
                  );
 
+                context.Messages.AddRange(new Message
+                {
+                    Subject = "database fun",
+                    Date = DateTime.Parse("1/1/1937"),
+                    Body = "Database is fun if you want it to be",
+                    From = member,
+                    Topic = "database"
+                }
+                    );
 
                 
 
 
 
-            }
+           }
             context.SaveChanges();
         }
 

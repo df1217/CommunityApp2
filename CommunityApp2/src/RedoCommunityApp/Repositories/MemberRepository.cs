@@ -9,29 +9,15 @@ namespace RedoCommunityApp.Repositories
 {
     public class MemberRepository : IMemberRepository
     {
-        public List<Member> GetAllMembers()
+        private ApplicationDBContext context;
+
+        public MemberRepository(ApplicationDBContext ctx)
         {
-            List<Member> members = new List<Member>();
-
-            members.Add(new Member()
-            {
-                Name = "John Smith",
-                Email = "jsmith@fake.com"
-
-            });
-
-         
-
-            members.Add(new Member()
-            {
-                Name = "Jane Smith",
-                Email = "jasmith@fake.com"
-
-            });
-
-
-            return members;
-
+            context = ctx;
+        }
+        public IEnumerable<Member> GetAllMembers()
+        {
+            return context.Members;
             
         }
 
