@@ -15,8 +15,18 @@
     </style>
 </head>
 <body>
+   
     <div >
         @RenderBody()
     </div>
+    @Html.ActionLink("Show all Messages", "Index", "Message")<br />
+    @Html.ActionLink("Show all Members", "Index", "Member")<br />
+
+
+    @Html.ActionLink("Show database messages", "MessagesByTopic", "Message",
+    new { topic = "database" })<br />
+
+    @Html.ActionLink("Show fun messages", "MessagesBySubject", "Message",
+    new { subject = "fun" })<br />
 </body>
 </html>

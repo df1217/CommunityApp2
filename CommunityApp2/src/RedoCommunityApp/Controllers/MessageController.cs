@@ -35,5 +35,19 @@ namespace RedoCommunityApp.Controllers
             var messages = messageRepo.GetAllMessages();
             return View(messages.ToList());
         }
+
+        public ViewResult MessagesByTopic(string topic)
+        {
+            ViewBag.Topic = topic;
+            return View("Index", messageRepo.GetAllMessages().
+                Where(m => m.Topic == topic).ToList());
+        }
+
+        public ViewResult MessagesBySubject(string subject)
+        {
+            ViewBag.Subject = subject.ToLower();
+            return View("Index", messageRepo.GetAllMessages().
+                Where(m => m.Subject == subject).ToList());
+        }
     }
 }
