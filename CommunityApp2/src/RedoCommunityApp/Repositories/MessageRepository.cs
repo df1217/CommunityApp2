@@ -26,5 +26,11 @@ namespace RedoCommunityApp.Repositories
                     where m.From == member
                     select m).ToList();
         }
+
+        public int Update(Message message)
+        {
+            context.Messages.Update(message);
+            return context.SaveChanges();
+        }
     }
 }

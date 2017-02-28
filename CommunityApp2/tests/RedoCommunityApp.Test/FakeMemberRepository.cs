@@ -9,7 +9,7 @@ namespace RedoCommunityApp
 {
     public class FakeMemberRepository : IMemberRepository
     {
-        public List<Member> GetAllMembers()
+        public IEnumerable<Member> GetAllMembers()
         {
             List<Member> members = new List<Member>();
 

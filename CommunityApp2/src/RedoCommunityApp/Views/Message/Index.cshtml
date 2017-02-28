@@ -9,6 +9,9 @@
     @: Body:    @m.Body <br />
     @: Date:    @m.Date <br /> 
     @:From:     @m.From.Name
-     <br /> <br />
+     <br />
+    @Html.ActionLink("Add a reply", "ReplyForm", "Reply",
+    new {Id = m.MessageID })
+    <br /> <br />
 
 }

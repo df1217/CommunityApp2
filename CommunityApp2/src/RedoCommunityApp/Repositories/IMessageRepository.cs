@@ -10,5 +10,7 @@ namespace RedoCommunityApp.Repositories
     {
         List<Message> GetMessagesByMember(Member member);
         IEnumerable<Message> GetAllMessages();
+
+        int Update(Message message);
     }
 }
