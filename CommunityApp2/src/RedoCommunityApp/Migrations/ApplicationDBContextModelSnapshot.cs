@@ -61,15 +61,9 @@ namespace RedoCommunityApp.Migrations
 
                     b.Property<int?>("MessageID");
 
-                    b.Property<int?>("ReplierMemberID");
-
-                    b.Property<DateTime>("ReplyDate");
-
                     b.HasKey("ReplyID");
 
                     b.HasIndex("MessageID");
-
-                    b.HasIndex("ReplierMemberID");
 
                     b.ToTable("Reply");
                 });
@@ -86,10 +80,6 @@ namespace RedoCommunityApp.Migrations
                     b.HasOne("RedoCommunityApp.Models.Message")
                         .WithMany("Replies")
                         .HasForeignKey("MessageID");
-
-                    b.HasOne("RedoCommunityApp.Models.Member", "Replier")
-                        .WithMany()
-                        .HasForeignKey("ReplierMemberID");
                 });
         }
     }

@@ -8,8 +8,8 @@ using RedoCommunityApp.Repositories;
 namespace RedoCommunityApp.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20170228054221_Lab7")]
-    partial class Lab7
+    [Migration("20170228212314_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,15 +62,9 @@ namespace RedoCommunityApp.Migrations
 
                     b.Property<int?>("MessageID");
 
-                    b.Property<int?>("ReplierMemberID");
-
-                    b.Property<DateTime>("ReplyDate");
-
                     b.HasKey("ReplyID");
 
                     b.HasIndex("MessageID");
-
-                    b.HasIndex("ReplierMemberID");
 
                     b.ToTable("Reply");
                 });
@@ -87,10 +81,6 @@ namespace RedoCommunityApp.Migrations
                     b.HasOne("RedoCommunityApp.Models.Message")
                         .WithMany("Replies")
                         .HasForeignKey("MessageID");
-
-                    b.HasOne("RedoCommunityApp.Models.Member", "Replier")
-                        .WithMany()
-                        .HasForeignKey("ReplierMemberID");
                 });
         }
     }

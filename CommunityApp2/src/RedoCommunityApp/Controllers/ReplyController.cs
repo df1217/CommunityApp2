@@ -30,15 +30,16 @@ namespace RedoCommunityApp.Controllers
             return View(replyVm);
         }
         [HttpPost]
-        public IActionResult ReplyForm(int id,  string body)
+       // public IActionResult ReplyForm(int id,  string body)
+         public IActionResult ReplyForm(ReplyViewModel reply)   
         {
-            // Get the full model object for the book being reviewed
+           
             Message message = (from m in messageRepo.GetAllMessages()
-                         where m.MessageID == id
+                         where m.MessageID == reply.MessageID
                          select m).FirstOrDefault<Message>();
 
-            // add the review and save the book object to the db
-            message.Replies.Add(new Reply { Body = body});
+           
+            message.Replies.Add(reply.MessageReply);
             messageRepo.Update(message);
 
             return RedirectToAction("Index", "Message");
