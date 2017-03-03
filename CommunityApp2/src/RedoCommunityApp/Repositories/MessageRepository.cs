@@ -32,5 +32,11 @@ namespace RedoCommunityApp.Repositories
             context.Messages.Update(message);
             return context.SaveChanges();
         }
+
+        public int Add(Message message)
+        {
+            context.Messages.Add(message);
+            return context.SaveChanges();
+        }
     }
 }

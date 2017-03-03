@@ -95,6 +95,11 @@ namespace RedoCommunityApp
             return messagesByMember;
         }
 
+        int IMessageRepository.Add(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
         IEnumerable<Message> IMessageRepository.GetAllMessages()
         {
             throw new NotImplementedException();

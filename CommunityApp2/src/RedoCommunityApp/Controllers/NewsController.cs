@@ -14,16 +14,16 @@ namespace RedoCommunityApp.Controllers
     {
         // GET: /<controller>/
         [HttpGet]
-        public IActionResult Index()
+        public ViewResult Index()
         {
             List<News> news = new List<News>();
-            var n1 = new News();
-            n1.Title = "Free Willie";
-            n1.Date = new DateTime(2016, 11, 30);
-            n1.Story = "Willie is free Yaaaaaaaaaaaaaaaaaaaaay!!!!";
+            News n2 = new News();
+            n2.Title = "Free Willie";
+            n2.Date = new DateTime(2016, 11, 30);
+            n2.Story = "Willie is free Yaaaaaaaaaaaaaaaaaaaaay!!!!";
                 
 
-            return View(n1);
+            return View(n2);
         }
         [HttpGet]
         public IActionResult Archive()

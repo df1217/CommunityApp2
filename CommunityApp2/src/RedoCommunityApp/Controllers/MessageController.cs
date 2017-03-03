@@ -49,5 +49,20 @@ namespace RedoCommunityApp.Controllers
             return View("Index", messageRepo.GetAllMessages().
                 Where(m => m.Subject == subject).ToList());
         }
+        [HttpGet]
+        public IActionResult MessageForm()
+        {
+            
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult MessageForm([Bind("Topic","Subject", "Body")]Message message)
+        {
+            message.Date = DateTime.Now;
+            message.From = new Member { Name = "Test", Email = "test@fake.com" };
+            messageRepo.Add(message);
+            return RedirectToAction("Index", "Message");
+        }
     }
 }
