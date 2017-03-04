@@ -8,15 +8,17 @@
 
 
 <form asp-controller="Message" asp-action="MessageForm" method="post">
-    
-    <label asp-for="Topic"></label>
-    <input asp-for="Topic" />
-    <br/>
-    <label asp-for="Subject"></label>
-    <input asp-for="Subject" />
-    <br/>
-    <label asp-for="Body"></label>
-    <input asp-for="Body" />
-    <br/>
-    <button type="submit">Post</button>
+    <div class="form-group">
+        <label asp-for="Topic"></label>
+        <input asp-for="Topic" class="form-control" />
+        <br />
+        <label asp-for="Subject" ></label>
+        <input asp-for="Subject" class="form-control" />
+        <br />
+        <label asp-for="Body" ></label>
+        <textarea asp-for="Body" class="form-control" rows="5"></textarea>
+        <br />
+        <button type="submit" class="btn btn-default">Post</button>
+        </div>
+
 </form>

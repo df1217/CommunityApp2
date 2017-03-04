@@ -17,7 +17,8 @@ namespace RedoCommunityApp.Repositories
         }
         public IEnumerable<Message> GetAllMessages()
         {
-            return context.Messages.Include(m=> m.From);
+            return context.Messages.Include(m=> m.From)
+                .Include(m=> m.Replies);
         }
 
         public List<Message> GetMessagesByMember(Member member)

@@ -1,6 +1,7 @@
 ﻿@model List<RedoCommunityApp.Models.Message>
 
-<h1 class="headerStyle"> This is the messages page</h1>
+<h1 class="headerStyle"> This is the messages page @Html.ActionLink("Add a Message", "MessageForm", "Message")</h1>
+
 @foreach (var m in Model)
 {
    
@@ -10,8 +11,21 @@
     @: Date:    @m.Date <br /> 
     @:From:     @m.From.Name
      <br />
+    
+  
+    @foreach (var reply in m.Replies)
+    {
+        @: <strong>Reply</strong>: @reply.Body
+        <br />
+    }
     @Html.ActionLink("Add a reply", "ReplyForm", "Reply",
-    new {Id = m.MessageID })
+    new { Id = m.MessageID })
     <br /> <br />
-
 }
+
+
+@Html.ActionLink("Show database messages", "MessagesByTopic", "Message",
+    new { topic = "database" })<br />
+
+@Html.ActionLink("Show fun messages", "MessagesBySubject", "Message",
+    new { subject = "fun" })<br />
