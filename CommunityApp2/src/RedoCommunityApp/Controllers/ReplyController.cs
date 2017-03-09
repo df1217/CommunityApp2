@@ -33,16 +33,30 @@ namespace RedoCommunityApp.Controllers
        // public IActionResult ReplyForm(int id,  string body)
          public IActionResult ReplyForm(ReplyViewModel reply)   
         {
-           
-            Message message = (from m in messageRepo.GetAllMessages()
-                         where m.MessageID == reply.MessageID
-                         select m).FirstOrDefault<Message>();
+            string body = reply.MessageReply.Body;
+            if (string.IsNullOrEmpty(body) 
+                || body.IndexOf(" ", System.StringComparison.Ordinal) < 1)
+            {
+                string prop = "MessageReply.Body";
+                ModelState.AddModelError(prop, "Please enter at least two words");
+            }
+            if (ModelState.IsValid)
+            {
+                Message message = (from m in messageRepo.GetAllMessages()
+                                   where m.MessageID == reply.MessageID
+                                   select m).FirstOrDefault<Message>();
 
-           
-            message.Replies.Add(reply.MessageReply);
-            messageRepo.Update(message);
 
-            return RedirectToAction("Index", "Message");
+                message.Replies.Add(reply.MessageReply);
+                messageRepo.Update(message);
+
+                return RedirectToAction("Index", "Message");
+            }
+
+            else
+                return View(reply);
+
+               
         }
     }
 }
