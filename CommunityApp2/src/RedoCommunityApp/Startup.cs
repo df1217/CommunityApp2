@@ -6,6 +6,7 @@ using RedoCommunityApp.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using RedoCommunityApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace RedoCommunityApp
 {
@@ -27,6 +28,13 @@ namespace RedoCommunityApp
                     options.UseSqlServer(
                         Configuration["Data:RedoCommunityApp:ConnectionString"])
             );
+
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
+               Configuration["Data:RedoCommunityAppIdentity:ConnectionString"]));
+
+            services.AddIdentity<Member, IdentityRole>(opts =>
+            { opts.Cookies.ApplicationCookie.LoginPath = "/Auth/Login"; })
+                 .AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddMvc();
             services.AddTransient<IMemberRepository, MemberRepository>();
             services.AddTransient<IMessageRepository, MessageRepository>();
@@ -36,7 +44,8 @@ namespace RedoCommunityApp
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseMvcWithDefaultRoute();
-            SeedData.EnsurePopulated(app);
+            app.UseIdentity();
+           // SeedData.EnsurePopulated(app).Wait();
         }
     }
 }

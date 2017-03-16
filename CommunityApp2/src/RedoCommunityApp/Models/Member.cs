@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace RedoCommunityApp.Models
 {
-    public class Member
+    public class Member : IdentityUser
     {
         public int MemberID { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
 
-        public override bool Equals(object obj)
-        {
-            Member memberObj = obj as Member;
-            if (memberObj == null)
-                return false;
-            else
-                return Name == memberObj.Name && Email == memberObj.Email;
-        }
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+       
 
     }
 }
